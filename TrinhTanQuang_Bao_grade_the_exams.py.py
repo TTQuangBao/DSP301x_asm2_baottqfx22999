@@ -112,22 +112,28 @@ def save_grades_to_file(filename, student_grades):
         print("An error occurred while saving grades:", str(e))
 
 def work_check():
-    try:
-        # Hiển thị menu lựa chọn công việc
-        print('****************************************************')
-        print('***Plese select the number for appropritate tasks:')
-        print(' 1. Quit program.')
-        print(' 2. Calculate and analyze test scores.')
-        print('****************************************************')
-        input_work = int(input('Enter your choice: '))
+    while True:
 
-        # Trả về lựa chọn công việc
-        return input_work
-    except:
-        # Xử lý ngoại lệ nếu người dùng nhập không phải số
-        print('Please only enter the value 1 or 2.')
-    # Trả về kết quả từ hàm check_file()
-    return check_file()
+        try:
+            # Hiển thị menu lựa chọn công việc
+            print('****************************************************')
+            print('***Plese select the number for appropritate tasks:')
+            print(' 1. Quit program.')
+            print(' 2. Calculate and analyze test scores.')
+            print('****************************************************')
+            input_work = int(input('Enter your choice: '))
+
+            # Trả về lựa chọn công việc
+            if input_work in [1, 2]:
+                return input_work
+            else:
+                # Nếu lựa chọn không hợp lệ, in thông báo lỗi và tiếp tục vòng lặp
+                print('\n===>Invalid choice. Please enter either 1 or 2.\n')
+                continue
+        except:
+            # Xử lý ngoại lệ nếu người dùng nhập không phải số
+            print('\n===>Invalid choice. Please enter either 1 or 2.\n')
+    
 
 def main():
     # Đáp án đúng của bài kiểm tra
@@ -184,7 +190,7 @@ def main():
 
         else:
             # Nếu lựa chọn công việc là 1, kết thúc chương trình
-            print('See you later')
+            print('\n<3 See you later! <3\n')
             break
 
 
